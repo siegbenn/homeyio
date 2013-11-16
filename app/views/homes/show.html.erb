@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @home.address %>
+</p>
+
+<p>
+  <strong>Latitide:</strong>
+  <%= @home.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @home.longitude %>
+</p>
+
+<p>
+<%= filepicker_image_tag @home.filepicker_url, w: 160, h: 160, fit: 'clip' %>
+</p>
+
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@home.latitude}%2C#{@home.longitude}" %>
+
+<%= link_to 'Edit', edit_home_path(@home) %> |
+<%= link_to 'Back', homes_path %>
