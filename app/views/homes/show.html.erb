@@ -1,6 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+	<%= link_to 'Back', homes_path %> | 
+	<%= link_to 'Edit', edit_home_path(@home) %>
+	
+</p>
+
+<p>
   <strong>Address:</strong>
   <%= @home.address %>
 </p>
@@ -19,7 +25,9 @@
 <%= filepicker_image_tag @home.filepicker_url, w: 160, h: 160, fit: 'clip' %>
 </p>
 
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@home.latitude}%2C#{@home.longitude}" %>
+<p>
+	<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@home.latitude}%2C#{@home.longitude}" %>
+</p>
 
-<%= link_to 'Edit', edit_home_path(@home) %> |
-<%= link_to 'Back', homes_path %>
+
+
