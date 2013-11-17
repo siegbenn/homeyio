@@ -6,8 +6,15 @@ gem 'rails', '4.0.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
+# Use filepicker for image processing and storage
 gem 'filepicker-rails'
+
+# Use geocoder for maps and search by location
 gem 'geocoder'
+
+# User devise for user authentication
+gem 'devise'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

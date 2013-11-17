@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Homeyio</title>
+  <title>Homey.io</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<nav>
+<p>
+  <%= link_to "Homey.io", root_path, :method => :get %>
+  <% if user_signed_in? %>
+  <%= current_user.email %>
+  <%= link_to "Sign Out", destroy_user_session_path, :method => :get %>
+  <%= link_to "Account", edit_user_registration_path, :method => :get %>
+  <% else %>
+  <%= link_to "Sign Up", new_user_registration_path %> or <%= link_to "Sign In", new_user_session_path %>
+  <% end %>
+</p>
+</nav>
 <%= yield %>
 
 <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>

@@ -1,10 +1,11 @@
 class HomesController < ApplicationController
   before_action :set_home, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, :except => [:show]
 
   # GET /homes
   # GET /homes.json
   def index
-    @homes = Home.all
+    @homes = Home.where(user_id: current_user.id)
   end
 
   # GET /homes/1
@@ -25,7 +26,7 @@ class HomesController < ApplicationController
   # POST /homes.json
   def create
     @home = Home.new(home_params)
-
+    @home.user_id = current_user.id
     respond_to do |format|
       if @home.save
         format.html { redirect_to @home, notice: 'Home was successfully created.' }
@@ -69,6 +70,6 @@ class HomesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def home_params
-      params.require(:home).permit(:address, :latitude, :longitude, :filepicker_url)
+      params.require(:home).permit(:address, :latitude, :longitude, :filepicker_url, :user_id)
     end
 end
