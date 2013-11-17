@@ -4,9 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.1'
 
 # Use sqlite3 as the database for Active Record
-group :development do
-  gem 'sqlite3'
-end
+gem 'pg'
 
 # Use filepicker for image processing and storage
 gem 'filepicker-rails'
@@ -41,10 +39,6 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
-end
-
-group :production do
-  gem 'pg', '0.12.2'
 end
 
 # Use ActiveModel has_secure_password
