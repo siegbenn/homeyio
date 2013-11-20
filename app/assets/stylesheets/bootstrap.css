@@ -5922,7 +5922,7 @@ a.list-group-item.active:focus .list-group-item-text {
 
 .well {
   min-height: 20px;
-  padding: 15px;
+  padding: 5%;
   margin-bottom: 20px;
   margin-left: 0px;
   margin-right: 0px;
