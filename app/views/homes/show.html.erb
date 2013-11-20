@@ -1,37 +1,74 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-9">
+    <h1><%= @home.address %></h1>
+  </div>
+  <div class="col-md-3">
+    <p>
+      <%= image_tag "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=#{request.original_url}&choe=UTF-8" %>
+    </p>
+    <p>homey.io/homes/<%= @home.id %></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <p>
+      <%= filepicker_image_tag @home.filepicker_url, w: 450, h: 300, fit: 'clip' %>
+    </p>
+  </div>
+  <div class="col-md-6">
+    <p>
+      <%= filepicker_image_tag @home.filepicker_url, w: 450, h: 300, fit: 'clip' %>
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <p>
+      <%= filepicker_image_tag @home.filepicker_url, w: 450, h: 300, fit: 'clip' %>
+    </p>
+  </div>
+  <div class="col-md-6">
+    <p>
+      <%= filepicker_image_tag @home.filepicker_url, w: 450, fit: 'clip' %>
+    </p>
+  </div>
+</div>
+<div class="row">
+<div class="col-md-12" >
+<div id="map-canvas" style="height:500px;width:100%;margin-bottom:60px"></div>
+</div>
+</div>
 
-<p>
-	<%= link_to 'Back', homes_path %> |
-	<%= link_to 'Edit', edit_home_path(@home) %>
-	
-</p>
 
-<p>
-<%= image_tag "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=#{request.original_url}&choe=UTF-8" %>
-</p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @home.address %>
-</p>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7uVzFVwWtw-ZlKR0BsaA-b0Ll_fH0Lhc&sensor=false"></script>
+<script type="text/javascript">
+var parliament = new google.maps.LatLng(<%= @home.latitude %>, <%= @home.longitude %>);
+var marker;
+var map;
 
-<p>
-  <strong>Latitide:</strong>
-  <%= @home.latitude %>
-</p>
+function initialize() {
+  var mapOptions = {
+    zoom: 16,
+    center: parliament
+  };
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @home.longitude %>
-</p>
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+          mapOptions);
 
-<p>
-<%= filepicker_image_tag @home.filepicker_url, w: 450, h: 300, fit: 'clip' %>
-</p>
+  marker = new google.maps.Marker({
+    map:map,
+    title:"<%= @home.address %>",
+    draggable:false,
+    animation: google.maps.Animation.DROP,
+    position: parliament
+  });
+}
 
-<p>
-	<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@home.latitude}%2C#{@home.longitude}" %>
-</p>
+google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, 'resize', initialize);
+</script>
+
 
 
 
