@@ -12,24 +12,24 @@
 <div class="row">
   <div class="col-md-6">
     <p>
-      <%= filepicker_image_tag @home.filepicker_url, w: 450, h: 300, fit: 'clip' %>
+      <%= image_tag @home.filepicker_url, :class => "img-responsive" %>
     </p>
   </div>
   <div class="col-md-6">
     <p>
-      <%= filepicker_image_tag @home.filepicker_url, w: 450, h: 300, fit: 'clip' %>
+      <%= image_tag @home.filepicker_url, :class => "img-responsive" %>
     </p>
   </div>
 </div>
 <div class="row">
   <div class="col-md-6">
     <p>
-      <%= filepicker_image_tag @home.filepicker_url, w: 450, h: 300, fit: 'clip' %>
+      <%= image_tag @home.filepicker_url, :class => "img-responsive" %>
     </p>
   </div>
   <div class="col-md-6">
     <p>
-      <%= filepicker_image_tag @home.filepicker_url, w: 450, fit: 'clip' %>
+      <%= image_tag @home.filepicker_url, :class => "img-responsive" %>
     </p>
   </div>
 </div>
@@ -40,8 +40,6 @@
 </div>
 
 
-
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7uVzFVwWtw-ZlKR0BsaA-b0Ll_fH0Lhc&sensor=false"></script>
 <script type="text/javascript">
 var parliament = new google.maps.LatLng(<%= @home.latitude %>, <%= @home.longitude %>);
 var marker;
