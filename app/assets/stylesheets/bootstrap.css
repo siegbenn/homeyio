@@ -5922,10 +5922,10 @@ a.list-group-item.active:focus .list-group-item-text {
 
 .well {
   min-height: 20px;
-  padding: 30px;
+  padding: 15px;
   margin-bottom: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 0px;
+  margin-right: 0px;
   background-color: #eeeeee;
   border-radius: 6px;
 }
