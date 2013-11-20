@@ -1,6 +1,8 @@
 Homeyio::Application.routes.draw do
   devise_for :users
   get "static/index"
+  get "about" => "static#about"
+  get "pricing" => "static#pricing"
   resources :homes
 
   # The priority is based upon order of creation: first created -> highest priority.

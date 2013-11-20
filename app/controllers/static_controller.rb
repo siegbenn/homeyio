@@ -4,4 +4,10 @@ class StaticController < ApplicationController
     	redirect_to :controller=>'homes', :action => 'index'
   	end
   end
+
+  def about
+  end
+
+  def pricing
+  end
 end
