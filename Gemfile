@@ -14,6 +14,9 @@ gem 'filepicker-rails'
 # Use geocoder for maps and search by location
 gem 'geocoder'
 
+# Use gon for passing javascript variables.
+gem 'gon'
+
 # User devise for user authentication
 gem 'devise'
 

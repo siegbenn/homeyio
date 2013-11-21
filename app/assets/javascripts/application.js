@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require maps.js
+//= require map.js
+//= require filepicker.js
 //= require_tree .

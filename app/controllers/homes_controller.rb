@@ -11,6 +11,8 @@ class HomesController < ApplicationController
   # GET /homes/1
   # GET /homes/1.json
   def show
+    gon.lon = @home.longitude
+    gon.lat = @home.latitude
   end
 
   # GET /homes/new
