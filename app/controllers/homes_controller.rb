@@ -11,8 +11,35 @@ class HomesController < ApplicationController
   # GET /homes/1
   # GET /homes/1.json
   def show
-    gon.lon = @home.longitude
-    gon.lat = @home.latitude
+    respond_to do |format|
+      format.html
+
+      # Require on a .pdf request
+      format.pdf do
+
+        # Use open-uri to open images via url
+        require "open-uri"
+
+        # Create a blank pdf document with var pdf
+        pdf = Prawn::Document.new
+
+        # Home address
+        pdf.text "#{@home.address}", size: 16, style: :bold
+
+        # Check to see if there is a home image.
+        if @home.filepicker_url.present?
+          # If present print image
+          pdf.image open("#{@home.filepicker_url}"), :width => 450
+        end
+          # Print the static map
+        pdf.image open("http://maps.google.com/maps/api/staticmap?size=600x350&sensor=false&zoom=15&markers=#{@home.latitude}%2C#{@home.longitude}"), :width => 450
+
+        # Render the pdf and set the filename to the address
+        # Make the pdf render in the browser
+        send_data pdf.render, filename: "#{@home.address}.pdf",
+        type: "application/pdf", disposition: "inline"
+      end
+    end
   end
 
   # GET /homes/new
@@ -72,6 +99,6 @@ class HomesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def home_params
-      params.require(:home).permit(:address, :latitude, :longitude, :filepicker_url, :user_id)
+      params.require(:home).permit(:address, :latitude, :longitude, :filepicker_url, :price, :beds, :baths, :house_size, :lot_size, :year, :description, :user_id)
     end
 end

@@ -10,12 +10,13 @@ end
 
 # Use filepicker for image processing and storage
 gem 'filepicker-rails'
+gem 'carrierwave'
+
+# Use prawn for pdf generation
+gem 'prawn'
 
 # Use geocoder for maps and search by location
 gem 'geocoder'
-
-# Use gon for passing javascript variables.
-gem 'gon'
 
 # User devise for user authentication
 gem 'devise'

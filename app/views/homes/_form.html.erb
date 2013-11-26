@@ -12,16 +12,77 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
+    <label for="home_address">Full Address</label>
+    <%= f.text_field :address, :class => "form-control", :placeholder => "e.g. 1600 Pennsylvania Ave. NW, Washington, DC 20500"  %>
   </div>
- 
+  <br />
+  <div class="field">
+    <label for="home_price">Price</label>
+    <%= f.text_field :price, :class => "form-control", :placeholder => "249000"  %>
+  </div>
+  <br />
+  <div class="field">
+  <label for="home_beds">Beds</i></label>
+    <select id="home_beds" class="form-control" name="home[beds]">
+<option value="0.0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">+</option></select>
+  </div>
+  <br />
+  <div class="field">
+  <label for="home_baths">Baths</i></label>
+    <select id="home_baths" class="form-control" name="home[baths]">
+<option value="0.0">0</option>
+<option value="0.5">0.5</option>
+<option value="1.0">1.0</option>
+<option value="1.5">1.5</option>
+<option value="2.0">2.0</option>
+<option value="2.5">2.5</option>
+<option value="3.0">3.0</option>
+<option value="3.5">3.5</option>
+<option value="4.0">4.0</option>
+<option value="4.5">4.5</option>
+<option value="5.0">5.0</option>
+<option value="5.5">+</option></select>
+  </div>
+  <br />
+  <div class="field">
+    <label for="home_house_size">House Size (sq ft)</label>
+    <%= f.text_field :house_size, :class => "form-control", :placeholder => "55000"  %>
+  </div>
+  <br />
+  <div class="field">
+    <label for="home_lot_size">Lot Size (acres)</label>
+    <%= f.text_field :lot_size, :class => "form-control", :placeholder => "18.0"  %>
+  </div>
+  <br />
+  <div class="field">
+  <label for="home_year">Year Built</label>
+    <%= f.text_field :year, :class => "form-control", :placeholder => "1792"  %>
+  </div>
+  <br />
+  <div class="field">
+    <label for="home_description">Description</label>
+    <%= f.text_area :description, :class => "form-control", size: "10x10" , :placeholder => 
+    "The White House is the official residence and principal workplace of the President of the United States, located at 1600 Pennsylvania Avenue NW in Washington, D.C. It has been the residence of every U.S. president since John Adams in 1800, and the term is often used by journalists as a metonym to refer to the acts of the President and his top advisors. There are 132 rooms, 32 bathrooms, and 6 levels to accommodate all the people who live in, work in, and visit the White House. There are also 412 doors, 147 windows, 28 fireplaces, 7 staircases, and 3 elevators. For recreation, the White House has a variety of facilities available to its residents, including a tennis court, a jogging track, swimming pool, movie theater, billiard room, and a bowling lane." %>
+  </div>
+  <br />
   <div class="field">
     <%= f.label :filepicker_url, "Upload Cover Image:" %>
     <%= f.filepicker_field :filepicker_url %>
   </div>
-  
+  <br />
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", :class => "btn btn-lg btn-success btn-block" %>
   </div>
 <% end %>
+</div>
+  </div>
+  <div class="col-md-1"></div>
+</div>
