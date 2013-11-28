@@ -5,4 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :homes
+
+  def user?
+  	role == "user"
+  end
+  
 end

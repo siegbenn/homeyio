@@ -8,9 +8,11 @@ group :development do
 	gem 'sqlite3'
 end
 
-# Use filepicker for image processing and storage
-gem 'filepicker-rails'
+# Use carrierwave and rmagick for image processing and storage
 gem 'carrierwave'
+gem 'rmagick'
+gem 'fog'
+gem 'unf'
 
 # Use prawn for pdf generation
 gem 'prawn'
@@ -20,6 +22,9 @@ gem 'geocoder'
 
 # User devise for user authentication
 gem 'devise'
+
+gem 'cancan'
+gem 'mercury-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

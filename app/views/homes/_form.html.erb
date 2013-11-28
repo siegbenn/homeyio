@@ -73,9 +73,15 @@
     "The White House is the official residence and principal workplace of the President of the United States, located at 1600 Pennsylvania Avenue NW in Washington, D.C. It has been the residence of every U.S. president since John Adams in 1800, and the term is often used by journalists as a metonym to refer to the acts of the President and his top advisors. There are 132 rooms, 32 bathrooms, and 6 levels to accommodate all the people who live in, work in, and visit the White House. There are also 412 doors, 147 windows, 28 fireplaces, 7 staircases, and 3 elevators. For recreation, the White House has a variety of facilities available to its residents, including a tennis court, a jogging track, swimming pool, movie theater, billiard room, and a bowling lane." %>
   </div>
   <br />
+
   <div class="field">
-    <%= f.label :filepicker_url, "Upload Cover Image:" %>
-    <%= f.filepicker_field :filepicker_url %>
+    <label for="home_image_main">Outside Image</label>
+    <%= f.file_field :image_main %>
+  </div>
+  <br />
+  <div class="field">
+  <label for="home_image_main">Inside Image</label>
+    <%= f.file_field :image_side_top %>
   </div>
   <br />
   <div class="actions">

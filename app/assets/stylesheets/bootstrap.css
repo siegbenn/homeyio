@@ -5926,8 +5926,11 @@ a.list-group-item.active:focus .list-group-item-text {
   margin-bottom: 20px;
   margin-left: 0px;
   margin-right: 0px;
-  background-color: #eeeeee;
-  border-radius: 6px;
+  background-color: #f8f8f8;
+  border-style:solid;
+  border-width:1px;
+  border-color: #e7e7e7;
+  border-radius: 0px;
 }
 
 .well blockquote {
