@@ -1,7 +1,7 @@
 class HomesController < ApplicationController
   before_action :set_home, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, :except => [:show]
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:create]
 
   # GET /homes
   # GET /homes.json
@@ -30,13 +30,13 @@ class HomesController < ApplicationController
         pdf.stroke_horizontal_rule
 
         # Check to see if there is a home image.
-        if @home.image_main.present?
+        if @home.image_outside.present?
           # If present print image
-          pdf.image open("#{@home.image_main_url}"), :width => 270, :at => [0, 670]
+          pdf.image open("#{@home.image_outside}"), :width => 270, :at => [0, 670]
         end
-        if @home.image_side_top.present?
+        if @home.image_inside.present?
           # If present print image
-          pdf.image open("#{@home.image_side_top_url}"), :width => 270, :at => [280, 670]
+          pdf.image open("#{@home.image_inside}"), :width => 270, :at => [280, 670]
         end
 
         pdf.image open("https://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=http://homey.io/homes/#{@home.id}"), :width => 55, :at => [480, 745]
@@ -56,11 +56,7 @@ class HomesController < ApplicationController
 
           # Print the static map
         pdf.image open("http://maps.google.com/maps/api/staticmap?size=600x500&sensor=false&zoom=15&markers=#{@home.latitude}%2C#{@home.longitude}"), :width => 280, :at => [0, 280]
-
-        pdf.move_down 90    
-        pdf.stroke_horizontal_rule
-        pdf.move_down 10
-        pdf.text "Made with <3 by Homey.io", size: 11
+        pdf.draw_text "Made with <3 by Homey.io", size: 11, :at => [0,0]
         
         # Render the pdf and set the filename to the address
         # Make the pdf render in the browser
@@ -127,6 +123,6 @@ class HomesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def home_params
-      params.require(:home).permit(:address, :latitude, :longitude, :filepicker_url, :price, :beds, :baths, :house_size, :lot_size, :year, :description, :user_id, :image_main, :image_side_top, :image_side_bottom)
+      params.require(:home).permit(:address, :latitude, :longitude, :price, :beds, :baths, :house_size, :lot_size, :year, :description, :user_id, :image_inside, :image_outside)
     end
 end

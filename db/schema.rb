@@ -11,13 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131128180706) do
+ActiveRecord::Schema.define(version: 20131129212607) do
 
   create_table "homes", force: true do |t|
     t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "filepicker_url"
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "user_id"
@@ -28,9 +27,8 @@ ActiveRecord::Schema.define(version: 20131128180706) do
     t.float    "baths"
     t.float    "house_size"
     t.float    "lot_size"
-    t.string   "image_main"
-    t.string   "image_side_top"
-    t.string   "image_side_bottom"
+    t.string   "image_inside"
+    t.string   "image_outside"
   end
 
   create_table "users", force: true do |t|
