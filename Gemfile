@@ -9,6 +9,7 @@ group :development do
 end
 
 # Use carrierwave and rmagick for image processing and storage
+# Use fog for image upload to S3
 gem 'carrierwave'
 gem 'rmagick'
 gem 'fog'
@@ -20,11 +21,11 @@ gem 'prawn'
 # Use geocoder for maps and search by location
 gem 'geocoder'
 
-# User devise for user authentication
+# Use devise for user authentication
 gem 'devise'
 
+# Use canca for user authorization
 gem 'cancan'
-gem 'mercury-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
