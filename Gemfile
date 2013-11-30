@@ -27,6 +27,8 @@ gem 'devise'
 # Use canca for user authorization
 gem 'cancan'
 
+gem 'newrelic_rpm'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
