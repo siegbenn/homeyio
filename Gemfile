@@ -8,6 +8,8 @@ group :development do
 	gem 'sqlite3'
 end
 
+gem 'rails_admin'
+
 # Use carrierwave and rmagick for image processing and storage
 # Use fog for image upload to S3
 gem 'carrierwave'
