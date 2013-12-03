@@ -1,3 +1,5 @@
+<div class="row">
+<div class="col-md-12">
 <h1 class="text-center">Dashboard</h1>
 <br />
 <div class="panel panel-default">
@@ -23,3 +25,25 @@
   </table>
 </div>
 <p><%= link_to 'Create Home', new_home_path, :class => "btn btn-success" %></p>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<hr />
+<h3>Activity Feed</h3>
+<div id='messagesDiv' class="well"></div>
+</div>
+</div>
+<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+<script>
+  // Get a reference to the root of the chat data.
+  var messagesRef = new Firebase('https://homey.firebaseIO.com/users/<%= current_user.id %>');
+
+  messagesRef.limit(100).on('child_added', function (snapshot) {
+    var message = snapshot.val();
+    $('<div/>').text(' >> '+message.text).prepend($('<em/>')
+    .text(message.name+' >> '+message.address+': ')).appendTo($('#messagesDiv'));
+    $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+  });
+</script>

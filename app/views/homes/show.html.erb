@@ -45,24 +45,50 @@
   <div class="col-md-6">
     <p class="well"><%= @home.description %></p>
     <div class="well">
-     <div class="field">
+    <div id = "alert_placeholder"></div>
     <h3>Contact Seller</h3>
-    <br />
-    <label for="home_address">Your Name</label>
-    <input class="form-control" id="home_address" name="home[address]" placeholder="George W." type="text" />
-  </div>
-  <br />
-  <div class="field">
-    <label for="home_price">Your Email</label>
-    <input class="form-control" id="home_price" name="home[price]" placeholder="george@washington.com" type="text" />
-    <br />
-    <label for="home_price">Message</label>
-    <textarea class="form-control" cols="10" id="home_description"> 
+
+    <% if user_signed_in? %>
+        <br />
+        <div class="field">
+    <textarea class="form-control" cols="10" id="messageInput" placeholder="Message"> 
     </textarea>
+    <br />
+    <button class="btn btn-lg btn-success btn-block" onclick="submit()">Send Message</button>
   </div>
   </div>
   </div>
 </div>
+<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+<script>
+  // Get a reference to the root of the chat data.
+  var messagesRef = new Firebase('https://homey.firebaseIO.com/users/<%= @home.user_id %>');
+
+  // When the user presses submit on the message input, write the message to firebase.
+    function submit(){
+      var address = '<%= @home.address %>'
+      var name = '<%= current_user.email %>'
+      var text = $('#messageInput').val();
+      messagesRef.push({address:address, name:name, text:text});
+      bootstrap_alert.warning();
+      $('#messageInput').val('');
+    }
+
+    bootstrap_alert = function() {}
+    bootstrap_alert.warning = function() {
+            $('#alert_placeholder').html('<div class="alert alert-success"><a class="close" data-dismiss="alert">×</a><span>Message Sent</span></div>')
+        }
+</script>
+      <% else %>
+      <p class="text-muted">To contact this seller please sign in.</p>
+      <p class="text-muted">Don't have an account? <a href="#">Sign up</a></p>
+      <button class="btn btn-lg btn-success btn-block" href="/">Sign in</button>
+      <br />
+      </div>
+
+      <% end %>
+
 
 
     

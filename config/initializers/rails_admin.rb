@@ -5,6 +5,7 @@ RailsAdmin.config do |config|
 
 
   ################  Global configuration  ################
+  
   # Only admin can access /admin
   config.authorize_with do
     redirect_to main_app.root_path unless current_user.admin?
@@ -18,7 +19,7 @@ RailsAdmin.config do |config|
   config.current_user_method { current_user } # auto-generated
 
   # If you want to track changes on your models:
-  # config.audit_with :history, 'User'
+  config.audit_with :history, 'User'
 
   # Or with a PaperTrail: (you need to install it first)
   # config.audit_with :paper_trail, 'User'
@@ -27,7 +28,7 @@ RailsAdmin.config do |config|
   # config.compact_show_view = false
 
   # Number of default rows per-page:
-  # config.default_items_per_page = 20
+  config.default_items_per_page = 20
 
   # Exclude specific models (keep the others):
   # config.excluded_models = ['Home', 'User']
