@@ -8,7 +8,7 @@ RailsAdmin.config do |config|
   
   # Only admin can access /admin
   config.authorize_with do
-    redirect_to main_app.root_path unless current_user.admin?
+    redirect_to main_app.root_path unless current_user.one?
   end
   # Set the admin name here (optional second array element will appear in red). For example:
   config.main_app_name = ['Homey', 'Admin']

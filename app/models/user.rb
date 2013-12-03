@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
   def user?
   	role == "user"
   end
-  def admin?
-  	role == "admin"
+  def one?
+  	id == 1
   end
   
 end
