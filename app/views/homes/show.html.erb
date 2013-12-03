@@ -82,8 +82,8 @@
 </script>
       <% else %>
       <p class="text-muted">To contact this seller please sign in.</p>
-      <p class="text-muted">Don't have an account? <a href="#">Sign up</a></p>
-      <button class="btn btn-lg btn-success btn-block" href="/">Sign in</button>
+      <p class="text-muted">Don't have an account? <%= link_to "Sign Up", new_user_registration_path %></p>
+      <%= link_to "Sign In", new_user_session_path, :class => "btn btn-lg btn-success btn-block" %>
       <br />
       </div>
 
