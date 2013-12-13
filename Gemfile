@@ -17,6 +17,9 @@ gem 'rmagick'
 gem 'fog'
 gem 'unf'
 
+# Use analytics-ruby for segment.io
+gem 'analytics-ruby', '<1.0'
+
 # Use prawn for pdf generation
 gem 'prawn'
 
