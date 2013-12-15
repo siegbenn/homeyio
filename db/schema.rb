@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131202174440) do
+ActiveRecord::Schema.define(version: 20131215214634) do
 
   create_table "homes", force: true do |t|
     t.string   "address"
@@ -29,6 +29,11 @@ ActiveRecord::Schema.define(version: 20131202174440) do
     t.float    "lot_size"
     t.string   "image_inside"
     t.string   "image_outside"
+    t.string   "full_address"
+    t.string   "address_2"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
   end
 
   create_table "rails_admin_histories", force: true do |t|

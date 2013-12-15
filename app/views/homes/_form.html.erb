@@ -13,7 +13,22 @@
 
   <div class="field">
     <label for="home_address">Full Address</label>
-    <%= f.text_field :address, :class => "form-control", :placeholder => "e.g. 1600 Pennsylvania Ave. NW, Washington, DC 20500"  %>
+    <%= f.text_field :address, :class => "form-control", :placeholder => "1600 Pennsylvania Ave. NW."  %>
+  </div>
+  <br />
+  <div class="field">
+    <label for="home_city">City</label>
+    <%= f.text_field :city, :class => "form-control", :placeholder => "Washington"  %>
+  </div>
+  <br />
+  <div class="field">
+    <label for="home_state">State</label>
+    <%= f.text_field :state, :class => "form-control", :placeholder => "DC"  %>
+  </div>
+  <br />
+  <div class="field">
+    <label for="home_zip">Zip</label>
+    <%= f.text_field :zip, :class => "form-control", :placeholder => "20500"  %>
   </div>
   <br />
   <div class="field">

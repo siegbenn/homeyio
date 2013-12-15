@@ -80,6 +80,7 @@ class HomesController < ApplicationController
   def create
     @home = Home.new(home_params)
     @home.user_id = current_user.id
+    @home.full_address = @home.address + ', ' + @home.city + ', ' + @home.state + ' ' + @home.zip.to_s
     respond_to do |format|
       if @home.save
         format.html { redirect_to @home, notice: 'Home was successfully created.' }
@@ -123,6 +124,6 @@ class HomesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def home_params
-      params.require(:home).permit(:address, :latitude, :longitude, :price, :beds, :baths, :house_size, :lot_size, :year, :description, :user_id, :image_inside, :image_outside)
+      params.require(:home).permit(:address, :city, :state, :zip, :latitude, :longitude, :price, :beds, :baths, :house_size, :lot_size, :year, :description, :user_id, :image_inside, :image_outside)
     end
 end
